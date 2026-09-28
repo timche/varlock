@@ -31,6 +31,15 @@
 
 
 
+
+## 1.21.1
+<sub>2026-09-28</sub>
+
+- [#1130](https://github.com/dmno-dev/varlock/pull/1130)  *(patch)*
+  Error when an unquoted config item value looks like a function call but cannot be parsed as one (e.g. an unquoted arg containing a space), instead of silently using the literal text
+- [#1135](https://github.com/dmno-dev/varlock/pull/1135)  *(patch)*
+  Run the varlock CLI with Bun when auto-load or an integration is used from a Bun process, so TypeScript local plugins work there
+
 ## 1.21.0
 <sub>2026-09-25</sub>
 
