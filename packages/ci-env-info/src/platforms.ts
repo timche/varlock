@@ -348,6 +348,13 @@ export const PLATFORMS: Array<PlatformDefinition> = [
     commitSha: 'EAS_BUILD_GIT_COMMIT_HASH',
   },
   { name: 'Firebase App Hosting', docsUrl: 'https://firebase.google.com/docs/app-hosting/configure', detect: 'FIREBASE_APP_HOSTING' },
+  {
+    name: 'Fly.io',
+    docsUrl: 'https://docs.fly.io/machines/runtime-environment/',
+    // Set on every Machine; Fly hosts running apps rather than build pipelines, so a match is not CI
+    detect: envAll('FLY_APP_NAME', 'FLY_MACHINE_ID'),
+    ci: false,
+  },
   { name: 'Gerrit', detect: 'GERRIT_PROJECT' },
   { name: 'Gitea Actions', detect: 'GITEA_ACTIONS' },
   { name: 'GoCD', detect: 'GO_PIPELINE_LABEL' },

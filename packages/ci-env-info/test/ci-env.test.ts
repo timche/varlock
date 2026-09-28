@@ -503,6 +503,17 @@ describe('getCiEnv', () => {
     );
   });
 
+  it('detects Fly.io as isCI: false', () => {
+    expectCiEnv(
+      { FLY_APP_NAME: 'my-app', FLY_MACHINE_ID: '148ed193b95089' },
+      { isCI: false, name: 'Fly.io' },
+    );
+  });
+
+  it('does not detect Fly.io from FLY_APP_NAME alone', () => {
+    expect(getCiEnv({ FLY_APP_NAME: 'my-app' }).name).toBeUndefined();
+  });
+
   it('detects CodeSandbox as isCI: false', () => {
     expectCiEnv(
       { CODESANDBOX_SSE: 'true' },
